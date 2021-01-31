@@ -110,7 +110,7 @@ class OmdbContainer extends Component {
 
   ALchecked (e) {
     console.log("button works", e.target.value);
-      var key =  e.target.value
+      var value =  e.target.value
     let arrayCopy = [...this.state.result];
     
     var mapped = arrayCopy.map(function(i) {
@@ -147,15 +147,14 @@ class OmdbContainer extends Component {
    //console.log("test",this.state.result.map(i=>i.name.first))
    //var userData = this.state.result;
    
-   console.log("testing ", this.state.result.map(i=>i))
-   console.log("testing i.name", this.state.result.map(i=>i.map(j=>console.log(j))))
+   //console.log("testing ", this.state.result.map(i=>i))
+   //console.log("testing i.name", this.state.result.map(i=>i.map(j=>console.log(j))))
    var newdata = this.state.result;
     return (
       <Container>
         {this.state.result.length === 0 ?
        <p>loading...</p> :
-        this.state.result.map(person => {
-          return(
+        
             <>
 <SearchForm value={this.state.search} handleInputChange={(e) => this.handleInputChange(this.state.search)} handleFormSubmit={this.handleFormSubmit}/>
         
@@ -220,8 +219,8 @@ class OmdbContainer extends Component {
           )}
           </td>
         </Table>  
-        </>        )
-          })}
+        </>        
+          }
         
         {/* <Row>
           <Col size="md-8">
