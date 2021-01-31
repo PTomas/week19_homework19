@@ -35,6 +35,15 @@ class OmdbContainer extends Component {
   handleInputChange = (e) => {
     var key = e.target.value
     console.log(key)
+
+    let arrayCopy = [...this.state.result];
+    var sorted = arrayCopy.sort((a, b) => {
+      if (a.name.first.startsWith(key) && b.name.first.startsWith(key)) return a.name.first.localeCompare(b.name.first);
+      else if (a.name.first.startsWith(key)) return -1;
+      else if (b.name.first.startsWith(key)) return 1;
+    });
+
+    this.setState({result: arrayCopy});
   };
 
   // compareBy(key) {
@@ -157,7 +166,7 @@ class OmdbContainer extends Component {
         
             <>
         {/* <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/> */}
-        <SearchForm value="keyword" handleInputChange={(e) => this.handleInputChange(this.state.result)} handleFormSubmit={this.handleFormSubmit}/>
+        <SearchForm value={this.state.handleInputChange} handleInputChange={(e) => this.handleInputChange(e)} handleFormSubmit={this.handleFormSubmit}/>
         
         <div className="form-check">
         <input className="form-check-input" type="checkbox" value="dob" id="flexCheckDefault" onClick={(e) => this.YOchecked(e) }/>
