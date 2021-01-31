@@ -146,13 +146,17 @@ class OmdbContainer extends Component {
   render() {
    //console.log("test",this.state.result.map(i=>i.name.first))
    //var userData = this.state.result;
-   console.log("testing ", this.state.result.map(i=>i))
-   console.log("testing i.name", this.state.result.map(i=>i.index.name.map(j=>console.log(j))))
+   
+   //console.log("testing ", this.state.result.map(i=>i))
+   //console.log("testing i.name", this.state.result.map(i=>i.index.map(j=>console.log(j))))
    var newdata = this.state.result;
     return (
       <Container>
-
-        <SearchForm value={this.state.search} handleInputChange={(e) => this.handleInputChange(this.state.search)} handleFormSubmit={this.handleFormSubmit}/>
+        {this.state.result.length === 0 ?
+       <p>loading...</p> :
+        this.state.result.map(person => {
+          return(
+<SearchForm value={this.state.search} handleInputChange={(e) => this.handleInputChange(this.state.search)} handleFormSubmit={this.handleFormSubmit}/>
         
         <div className="form-check">
         <input className="form-check-input" type="checkbox" value="dob" id="flexCheckDefault" onClick={(e) => this.YOchecked(e) }/>
@@ -214,7 +218,9 @@ class OmdbContainer extends Component {
               </>
           )}
           </td>
-        </Table>
+        </Table>          )
+          })}
+        
         {/* <Row>
           <Col size="md-8">
             <Card
