@@ -146,9 +146,9 @@ class OmdbContainer extends Component {
   render() {
    //console.log("test",this.state.result.map(i=>i.name.first))
    //var userData = this.state.result;
-   console.log("testing i.name", this.state.result.map(i=>i.index.name.first))
-   var newdata = this.state.data;
-    var sortTypes
+   console.log("testing ", this.state.result.map(i=>i))
+   console.log("testing i.name", this.state.result.map(i=>i.index.name.map(j=>console.log(j))))
+   var newdata = this.state.result;
     return (
       <Container>
 
