@@ -32,8 +32,9 @@ class OmdbContainer extends Component {
   };
 
   
-  handleInputChange = () => {
-    console.log()
+  handleInputChange = (e) => {
+    var key = e.target.value
+    console.log(key)
   };
 
   // compareBy(key) {
@@ -155,7 +156,8 @@ class OmdbContainer extends Component {
        <p>loading...</p> :
         
             <>
-<SearchForm value={this.state.search} handleInputChange={(e) => this.handleInputChange(this.state.search)} handleFormSubmit={this.handleFormSubmit}/>
+        {/* <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/> */}
+        <SearchForm value="keyword" handleInputChange={(e) => this.handleInputChange(this.state.result)} handleFormSubmit={this.handleFormSubmit}/>
         
         <div className="form-check">
         <input className="form-check-input" type="checkbox" value="dob" id="flexCheckDefault" onClick={(e) => this.YOchecked(e) }/>
