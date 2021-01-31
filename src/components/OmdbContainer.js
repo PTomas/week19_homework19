@@ -113,9 +113,7 @@ class OmdbContainer extends Component {
       var value =  e.target.value
     let arrayCopy = [...this.state.result];
     
-    var mapped = arrayCopy.map(function(i) {
-      return { index: i };
-    })
+    var mapped = arrayCopy.map(i=>i.map(j=>console.log(j)))
 
     mapped.sort(function(a, b) {
       if (a.value > b.value) {
