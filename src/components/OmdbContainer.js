@@ -147,8 +147,8 @@ class OmdbContainer extends Component {
    //console.log("test",this.state.result.map(i=>i.name.first))
    //var userData = this.state.result;
    
-   //console.log("testing ", this.state.result.map(i=>i))
-   //console.log("testing i.name", this.state.result.map(i=>i.index.map(j=>console.log(j))))
+   console.log("testing ", this.state.result.map(i=>i))
+   console.log("testing i.name", this.state.result.map(i=>i.map(j=>console.log(j))))
    var newdata = this.state.result;
     return (
       <Container>
@@ -156,6 +156,7 @@ class OmdbContainer extends Component {
        <p>loading...</p> :
         this.state.result.map(person => {
           return(
+            <>
 <SearchForm value={this.state.search} handleInputChange={(e) => this.handleInputChange(this.state.search)} handleFormSubmit={this.handleFormSubmit}/>
         
         <div className="form-check">
@@ -218,7 +219,8 @@ class OmdbContainer extends Component {
               </>
           )}
           </td>
-        </Table>          )
+        </Table>  
+        </>        )
           })}
         
         {/* <Row>
