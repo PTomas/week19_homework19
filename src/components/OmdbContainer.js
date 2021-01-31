@@ -93,15 +93,9 @@ class OmdbContainer extends Component {
 
     arrayCopy.sort(function(a, b) {
       console.log(a[key].first, 'test')
-      if(key==="first"){
     if (a[key].first < b[key].first){ return -1};
     if (a[key].first > b[key].first){ return 1};
     return 0}
-    if (a[key] < b[key]){ return -1};
-    if (a[key] > b[key]){ return 1};
-    return 0
-
-    }
     )
    console.log(arrayCopy.map(i=>i.name.first))
     this.setState({result: arrayCopy});
@@ -115,19 +109,14 @@ class OmdbContainer extends Component {
       console.log(key)
 
     let arrayCopy = [...this.state.result];
-    var userArray = []
-    userArray.push(arrayCopy)
     //var mapped = arrayCopy.map(i=>i.map(j=>console.log(j)))
-    var mapped = userArray.map(i => {
-      return { index: i};
-    })
     {/*(i => {
       console.log("i :::: ", i);
       i.map(j => {
         console.log("j ::: ", j);
       })
     })*/}
-    mapped.sort(function(a, b) {
+    arrayCopy.sort(function(a, b) {
       if (a[key].last > b[key].last) {
         return 1;
       }
@@ -137,8 +126,8 @@ class OmdbContainer extends Component {
       return 0;
     }
       )
-   console.log(arrayCopy.map(i=>i.name.last))
-    this.setState({result: mapped});
+   console.log(arrayCopy);
+    this.setState({result: arrayCopy});
     console.log(this.state.result, "state change")
 
   }
