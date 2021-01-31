@@ -110,16 +110,28 @@ class OmdbContainer extends Component {
 
   ALchecked (e) {
     console.log("button works", e.target.value);
-      var value =  e.target.value
-    let arrayCopy = [...this.state.result];
-    
-    var mapped = arrayCopy.map(i=>i.map(j=>console.log(j)))
 
+      var key =  e.target.value
+      console.log(key)
+
+    let arrayCopy = [...this.state.result];
+    var userArray = []
+    userArray.push(arrayCopy)
+    //var mapped = arrayCopy.map(i=>i.map(j=>console.log(j)))
+    var mapped = userArray.map(i => {
+      return { index: i};
+    })
+    {/*(i => {
+      console.log("i :::: ", i);
+      i.map(j => {
+        console.log("j ::: ", j);
+      })
+    })*/}
     mapped.sort(function(a, b) {
-      if (a.value > b.value) {
+      if (a[key].last > b[key].last) {
         return 1;
       }
-      if (a.value < b.value) {
+      if (a[key].last < b[key].last) {
         return -1;
       }
       return 0;
